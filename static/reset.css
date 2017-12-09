@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+   /* 在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决 */
+  max-height: 100000px;
+}
+
+*:before, *:after {
+  box-sizing: border-box;
+  max-height: 100000px;
+}
+
+*, *:before, *:after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th,textarea, td {
+  border: 0 none;
+  font-size: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+em, strong {
+  font-style: normal;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",Arial,sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f2f2f2;
+    font-size: 0.24rem;
+}
+a {
+  text-decoration: none;
+}
+.box {
+  position: relative;
+  max-width: 10rem;
+  margin: 0 auto;
+}
+input{border:1px;}
+
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+
+
+button{
+    background: none;
+    outline: none;
+    border: none;
+}
+/*清楚下拉列表样式*/
+select{
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+/*清楚浮动*/
+.clearfix:after{
+    content: " ";
+    display: block;
+    clear:both;
+}
+/*按钮样式*/
+.btn{
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    line-height: 55px;
+    background: #03BC01;
+    font-size: 18px;
+    text-align: center;
+}
+/*loading*/
+.loading{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(36,32,48, 0);
+}
+.loader{
+    margin: 0 auto;
+    height: 100px;
+    width: 100px;
+    padding: 25px;
+    box-sizing: border-box;
+    margin-top: 50%;
+    text-align: center;
+    background: rgba(36,32,48, 0.7);
+    border-radius: 5px;
+}
+.barWrap{
+    position: relative;
+    background: rgba(101,98,109,1);
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    -webkit-transform: rotate(0deg);
+    -webkit-animation: loadingBar 0.7s linear infinite;
+}
+.bar{
+    width: 40px;
+    height: 40px;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.beforeBar{
+    top: 0;
+    box-sizing: border-box;
+    border-top: 18px solid rgba(101,98,109,1);
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid transparent;
+    position: absolute;
+    -webkit-border-radius: 18px;
+    -webkit-background-clip: padding-box;
+}
+@-webkit-keyframes loadingBar {
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}

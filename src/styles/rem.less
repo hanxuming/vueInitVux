@@ -1,0 +1,28 @@
+
+@device-bps: 320px, 360px, 400px, 414px, 480px, 750px;
+.html-font-size(@i, @design-font-size, @design-width) when (@i <= length(@device-bps)) {  //注意less数组是从1开始的
+  @bp: extract(@device-bps, @i);
+  @font: round(@bp / @design-width * @design-font-size, 2);
+  @media only screen and (min-width: @bp){
+    html {
+      font-size: @font !important;
+    }
+  }
+  .html-font-size((@i + 1), @design-font-size, @design-width);
+}
+
+.html-font-size(@design-font-size, @design-width) {
+   html {
+     font-size: @design-font-size;
+   }
+   .html-font-size(1, @design-font-size, @design-width);
+}
+
+.px2rem(@name, @px, @design-font-size) {
+    @{name}: 1rem * round(@px / @design-font-size, 2);
+}
+@design-font-size : 26px; 
+@design-width : 750px;
+.px2rem(@name, @px) {
+    .px2rem(@name, @px, @design-font-size);
+}

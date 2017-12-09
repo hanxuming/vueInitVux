@@ -1,0 +1,89 @@
+import Vue from 'vue'
+import api from '../../api/api'
+import * as types from '../types'
+import Vuex from 'vuex'
+/******数据层----全是数据 */
+const state = {
+    // 用户登录状态
+    loginStatus: JSON.parse(localStorage.getItem('loginStatus')) || false,
+    // 用户登录信息
+    userInfo: JSON.parse(localStorage.getItem('userInfo')) || {},
+    // 用户数据信息
+    userData: []
+}
+/*****处理逻辑数据ajax请求 */
+const actions = {
+    /**
+     * 用户登录
+     */
+    setUserInfo({ commit }, res) {
+        //存储用户信息
+        localStorage.setItem('userInfo', JSON.stringify(res))
+        //存储用户登录状态
+        localStorage.setItem('loginStatus', true)
+        commit(types.SET_USER_INFO, res)
+        commit(types.SET_LOGIN_STATUS, true)
+    },
+    /**
+     * 设置是否显示tabbar
+     */
+    setShowTabbr({ commit }, res){
+        commit(types.COM_SHOWTABBR, res)
+    },
+    /**
+     * 请求用户信息
+     */
+    getUserData({ commit }, id) {
+        commit(types.COM_LOADING_STATUS, true)
+        api.UserInfo(id)
+            .then(res => {
+                //提交mutations去改变数据
+                commit(types.COM_LOADING_STATUS, false)
+                commit(types.GET_USER_DATA, res.data)
+            })
+    },
+   /****
+   * 用户退出登录 
+    */
+   setSignOut({commit}){
+    localStorage.removeItem('loginStatus')//清空用户登录状态
+    localStorage.removeItem('userInfo')//清空用户信息
+    commit(types.SET_LOGIN_STATUS, false)//改变用户状态
+    commit(types.SET_USER_INFO, {})//改变用户信息
+    commit(types.COM_SHOWTABBR, false)//退出登录，隐藏tabbar
+   }
+}
+/****获取状态 */
+// function (state) {
+//     return state.userInfo;
+// }
+/****提供获取数据的方法 */
+const getters = {
+    getUserData: state => state.userData,
+    loginStatus: state => state.loginStatus,
+    userInfo: state => state.userInfo
+}
+/******mutations提交数据** */
+const mutations = {
+    /*****commit接收action中的数据 */
+    [types.SET_USER_INFO](state, res) {
+        state.userInfo = res
+    },
+
+    [types.SET_LOGIN_STATUS](state, status) {
+        state.loginStatus = status
+    },
+
+    [types.GET_USER_DATA](state, res) {
+        state.userData = res
+    }
+    
+}
+Vue.use(Vuex)
+/****导出模块 */
+export default{
+    state,
+    actions,
+    getters,
+    mutations
+}

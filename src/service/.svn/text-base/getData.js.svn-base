@@ -1,0 +1,26 @@
+import fetch from '../config/fetch'
+import * as userinfo from './tempdata/userinfo'
+
+
+/**
+ * 模拟json数据
+ */
+const setpromise = data => {
+	return new Promise((resolve, reject) => {
+		resolve(data)
+	})
+}
+	/**
+	 * 登录人员信息
+	 */
+    console.log("the node env is ："+process.env.NODE_ENV);
+	//暂时设置production模式development
+     if(process.env.NODE_ENV=='production'){
+
+	  var  Login = (data) => fetch('GET', '/static/userinfo.json', data);
+
+	 }else{
+    	var Login = () => setpromise(userinfo.userInfo);
+	 }
+  
+    export{ Login }
