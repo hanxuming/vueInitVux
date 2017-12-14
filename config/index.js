@@ -23,55 +23,22 @@ module.exports = {
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   },
-  //historyWeather访问者代理   http://v.juhe.cn/
-  /****
-   * 
-   * 
-    '/historyWeather': {
-     target: 'http://v.juhe.cn/',
-      changeOrigin: true,
-       pathRewrite: {
-      '^/historyWeather': '/historyWeather'
-    }
-  },
-  '/catering': {
-     target: 'http://apis.juhe.cn/',
-      changeOrigin: true,
-       pathRewrite: {
-      '^/catering': '/catering'
-    }
-  },
-  '/oil': {
-     target: 'http://apis.juhe.cn/',
-      changeOrigin: true,
-       pathRewrite: {
-      '^/oil': '/oil'
-    }
-  }
-   */
+
   dev: {
     env:  {NODE_ENV: '"development"'},
     port: 8888,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {  
-      
+    proxyTable: {
+      '/users': {
+          target: 'http://localhost:3000',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/users': '/users'
+          }
+        }
     },
-    /*proxyTable: {
-    '/historyWeather': {
-     target: 'http://v.juhe.cn/',
-      changeOrigin: true,
-       pathRewrite: {
-      '^/historyWeather': '/historyWeather'
-    }
-  }
-    },*/
-    // CSS Sourcemaps off by default because relative paths are "buggy"
-    // with this option, according to the CSS-Loader README
-    // (https://github.com/webpack/css-loader#sourcemaps)
-    // In our experience, they generally work as expected,
-    // just be aware of this issue when enabling this option.
     cssSourceMap: false
   }
 }

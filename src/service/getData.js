@@ -19,8 +19,9 @@ if(process.env.NODE_ENV=='development'){
 	/*var  Login = (data) => fetch('GET', 'historyWeather/province', data);*/
 	var Meeting = () => setpromise(meeting.meeting);
 	var Login = () => setpromise(meeting.meeting);
+	var test = (data) => fetch('GET','users/getUserInfo?id=2',data);
 }else{
 	var Login = () => setpromise(meeting.meeting);
 	// var  Login = (data) => fetch('GET', '/static/userinfo.json', data);
 }
-export{ Login,Meeting ,getPageList}
+export{ Login,Meeting ,getPageList,test}
