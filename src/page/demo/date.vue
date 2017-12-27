@@ -1,11 +1,13 @@
 <template>
 	<div>
-		<h1 style="text-align:center;">hello world </h1>
+		<h1 style="text-align:center;">hello11 world </h1>
 		<h3>vue+fetch+vux+vue-router+vuex+webpack + node</h3>
 		<p class="test">
 			<span class="world">test less can use?</span>
 		</p>
-		<p>从node服务器请求来的城市数据：{{apiDate}}</p>
+		<p>从node服务器请求来的数据：{{apiDate}}</p>
+		<router-link to="demotest">demotest</router-link>
+		<a href='javascript:void(0);' @click="toDemoPage">demotest</a>
 	</div>
 </template>
 <script type="text/javascript">
@@ -21,7 +23,8 @@
 		mounted(){
 			var data = {};
 			test(data).then(res => {
-				this.apiDate = res[0].data.city;
+				//alert(JSON.stringify(res));
+				this.apiDate = res.data.city;
 			}).catch(err => {
 
 			})
@@ -30,7 +33,9 @@
 			
 		},
 		methods : {
-			
+			toDemoPage () {
+				this.$router.push("/demotest");
+			}
 		}
 	}
 </script>

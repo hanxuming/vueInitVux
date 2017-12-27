@@ -12,6 +12,18 @@ const setpromise = data => {
 	})
 }
 /**
+ * 请求超时的处理
+ * 
+ */
+function _fetch(fetch, timeout) {
+	return Promise.race([
+		fetch,
+		new Promise(function (resolve, reject) {
+			setTimeout(() => reject(new Error('request timeout')), timeout);
+		})
+	]);
+}
+/**
  * 登录人员信息
  */
 //暂时设置production模式development()
