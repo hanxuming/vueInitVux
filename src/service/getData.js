@@ -29,6 +29,7 @@ function _fetch(fetch, timeout) {
 //暂时设置production模式development()
 if(process.env.NODE_ENV=='development'){
 	/*var  Login = (data) => fetch('GET', 'historyWeather/province', data);*/
+	var  Login = (data) => _fetch(fetch('GET', 'historyWeather/province', data),10000);
 	var Meeting = () => setpromise(meeting.meeting);
 	var Login = () => setpromise(meeting.meeting);
 	var test = (data) => fetch('GET','users/getUserInfo?id=2',data);

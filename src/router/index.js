@@ -8,8 +8,8 @@ import demotest from  '../page/vux/demoTest.vue'
 
 import test from  '../page/demo/test.vue'
 //异步加载组件
-// const date = r => require.ensure([], () => r(require('../page/demo/date.vue')), 'chunkname1')
-// const vuxlogin = r => require.ensure([], () => r(require('../page/vux/login')), 'chunkname1')
+//const date = r => require.ensure([], () => r(require('../page/demo/date.vue')), 'chunkname1')
+//const vuxlogin = r => require.ensure([], () => r(require('../page/vux/login')), 'chunkname1')
 //用ui组件
 export default new Router({
   //路由配置
