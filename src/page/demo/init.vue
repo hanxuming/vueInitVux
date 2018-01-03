@@ -11,7 +11,7 @@
 			}
 		},
 		mounted () {
-
+		
 		},
 		components : {
 			tab,
@@ -22,6 +22,6 @@
 		}
 	}
 </script>
-<style type="text/css" scoped>
+<style type="text/css">
 	
 </style>

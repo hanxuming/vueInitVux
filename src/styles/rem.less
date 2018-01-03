@@ -1,5 +1,5 @@
 
-@device-bps: 320px, 360px, 400px, 414px, 480px, 750px;
+@device-bps: 320px, 360px, 375px, 400px, 414px, 480px, 750px;
 .html-font-size(@i, @design-font-size, @design-width) when (@i <= length(@device-bps)) {  //注意less数组是从1开始的
   @bp: extract(@device-bps, @i);
   @font: round(@bp / @design-width * @design-font-size, 2);
@@ -21,8 +21,8 @@
 .px2rem(@name, @px, @design-font-size) {
     @{name}: 1rem * round(@px / @design-font-size, 2);
 }
-@design-font-size : 26px; 
-@design-width : 750px;
+@design-font-size : 13px; 
+@design-width : 375px;
 .px2rem(@name, @px) {
     .px2rem(@name, @px, @design-font-size);
 }

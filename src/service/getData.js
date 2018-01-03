@@ -32,9 +32,10 @@ if(process.env.NODE_ENV=='development'){
 	var  Login = (data) => _fetch(fetch('GET', 'historyWeather/province', data),10000);
 	var Meeting = () => setpromise(meeting.meeting);
 	var Login = () => setpromise(meeting.meeting);
-	var test = (data) => fetch('GET','users/getUserInfo?id=2',data);
+	var test = (data) => fetch('GET','users/getUserInfo?id=1',data);
+	var postTest = (data) => fetch('POST','users/postUserInfo',data);
 }else{
 	var Login = () => setpromise(meeting.meeting);
 	// var  Login = (data) => fetch('GET', '/static/userinfo.json', data);
 }
-export{ Login,Meeting ,getPageList,test}
+export{ Login,Meeting ,getPageList,test,postTest}

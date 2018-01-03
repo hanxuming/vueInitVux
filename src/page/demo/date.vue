@@ -5,19 +5,25 @@
 		<p class="test">
 			<span class="world">test less can use?</span>
 		</p>
-		<p>从node服务器请求来的数据：{{apiDate}}</p>
+		<p>从node服务器get请求来的数据：{{apiDate}}</p>
+		<p>从node服务器post请求来的数据：{{postReturnDate}}</p>
 		<router-link to="demotest">demotest</router-link>
 		<a href='javascript:void(0);' @click="toDemoPage">demotest</a>
 	</div>
 </template>
 <script type="text/javascript">
 	import { Tab, TabItem } from 'vux'
-	import { test } from '@/service/getData'
+	import { test,postTest } from '@/service/getData'
 	export default{
 		data () {
 			return {
 				index:0,
-				apiDate: ""
+				apiDate: "",
+				login:{
+					username:"hanxuming",
+					pwd : "123456"
+				},
+				postReturnDate:""
 			}
 		},
 		mounted(){
@@ -28,6 +34,14 @@
 			}).catch(err => {
 
 			})
+			postTest(this.login).then(res => {
+				console.log("res",JSON.stringify(res));
+				this.postReturnDate = res.data.name;
+			}).catch(err => {
+				console.log("err",JSON.stringify(err));
+			})
+
+
 		},
 		components : {
 			
