@@ -16,7 +16,7 @@ const webpackConfig  = {
     app: './src/main.js'
   },
   output: {
-    path: config.build.assetsRoot,
+    path: config.build.assetsRoot, //项目根路径
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
@@ -29,15 +29,16 @@ const webpackConfig  = {
       '@': resolve('src')
     }
   },
+  //配置模块加载器
   module: {
     rules: [
       {
-        test: /\.vue$/,
+        test: /\.vue$/, //所有以.vue结尾的文件都由vue-loader加载
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
       {
-        test: /\.js$/,
+        test: /\.js$/, //所有以.js结尾的文件都由babel-loader加载，除了node_modules以外
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },

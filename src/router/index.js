@@ -16,22 +16,22 @@ export default new Router({
   routes: [
      /***测试首页 */
     {
-     path: '/',
-     component: date
+      path: '/',
+      component: date
      },
-     {
-     path: '/vuxlogin',
-     component: vuxlogin
-     },
-     {
+    {
+      path: '/vuxlogin',
+      component: vuxlogin
+    },
+    {
       path: '/demotest',
       component: demotest,
       name : 'demotest'
-      },
-      {
-        path: '/test',
-        component: test,
-        name : 'test'
-        }
+    },
+    {
+      path: '/test',
+      component: test,
+      name : 'test'
+    }
     ]
   })

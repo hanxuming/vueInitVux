@@ -10,7 +10,6 @@ export  const meeting = {
             "name": "光大银行工作通知会议光大银行工作通知会议", 
             "key": "会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议内容"
         }
-
     ],
 	"current_address_id": 0,
 	"current_invoice_id": 0,

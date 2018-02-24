@@ -1,6 +1,5 @@
 import fetch from '../config/fetch'
 import * as meeting from './tempdata/meeting'
-
 import "fetch-ie8"
 import "fetch-detector"
 /**
@@ -38,4 +37,5 @@ if(process.env.NODE_ENV=='development'){
 	var Login = () => setpromise(meeting.meeting);
 	// var  Login = (data) => fetch('GET', '/static/userinfo.json', data);
 }
+
 export{ Login,Meeting ,getPageList,test,postTest}
